@@ -1,6 +1,15 @@
 
-function getAllNotes(req, res) {
-	res.status(200).send("You just fetched the notes");
+const Note = require("../models/notes.js");
+
+
+async function getAllNotes(req, res) {
+	try{
+		const notes = await Note.find();
+		res.status(200).json(notes);
+	}catch(error){
+		console.error("internal server error: ", error);
+		res.status(500).json({message: "internal server error"})
+	}
 }
 
 function createNote(req, res) {

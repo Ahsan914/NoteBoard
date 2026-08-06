@@ -6,6 +6,11 @@ const dotenv = require("dotenv");
 const express = require("express");
 
 const app = express();
+app.use(express.json());
+// app.use((req, res, next) => {
+//   console.log("Body:", req.body);
+//   next();
+// });
 app.use("/api/notes", notesRouter);
 
 dotenv.config();

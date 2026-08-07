@@ -2,6 +2,19 @@
 const Note = require("../models/notes.js");
 
 
+async function getNote(req, res) {
+	try{
+		const note = await Note.findById(req.params.id);
+
+		if(!note) return res.status(404).json({message: "Note not found"});
+		res.status(200).json(note);
+	
+	}catch(error){
+		console.error("internal server error: ", error)
+		res.status(500).json({message: "internal server error"})
+	}
+}
+
 async function getAllNotes(req, res) {
 	try{
 		const notes = await Note.find();
@@ -41,7 +54,7 @@ async function updateNote(req, res) {
 	}
 }
 
-function deleteNote(req, res) {
+async function deleteNote(req, res) {
 	try{
 		const deletedNote = await Note.findByIdAndDelete(req.params.id);
 
@@ -54,4 +67,4 @@ function deleteNote(req, res) {
 	}
 }
 
-module.exports = {getAllNotes, createNote, updateNote, deleteNote};
+module.exports = {getNote, getAllNotes, createNote, updateNote, deleteNote};

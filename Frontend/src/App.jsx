@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <div>  
-      <button onClick={()=>toast.success("congrats")} className="text-red-500 p-4 bg-pink-300">
+      <button onClick={()=>toast.success("congrats")} className="btn btn-primary">
         click me
       </button>
 

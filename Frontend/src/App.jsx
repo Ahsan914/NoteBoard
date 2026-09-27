@@ -10,11 +10,12 @@ import toast from "react-hot-toast"
 export default function App() {
 
   return (
-    <div>  
-      <button onClick={()=>toast.success("congrats")} className="btn btn-primary">
-        click me
-      </button>
-
+    <div data-theme="coffee" className="relative isolate h-full w-full">
+      <div 
+        className="
+        absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 
+        [background:radial-gradient(125%_115%_at_50%_10%,#000_60%,color-mix(in_oklch,var(--color-primary)_25%,transparent)_100%)]"
+      />
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/create" element={<CreatePage/>} />

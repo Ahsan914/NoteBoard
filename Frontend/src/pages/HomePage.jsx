@@ -1,0 +1,61 @@
+
+import { useState, useEffect } from "react"
+import axios from "axios"
+import toast from "react-hot-toast"
+
+import Navbar from "../components/Navbar.jsx"
+import RateLimitedUI from "../components/RateLimitedUI.jsx"
+import NoteCard from "../components/NoteCard.jsx"
+
+export default function HomePage() {
+    const [isRateLimited, setIsRateLimited] = useState(false);
+    const [notes, setNotes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      const fetchNotes = async() => {
+        
+        axios.get("http://localhost:3000/api/notes")
+          .then((res) => {
+            console.log(res.data);
+            setNotes(res.data);
+            setIsRateLimited(false);  
+          })
+          .catch((error) => {
+            if(error.response?.status == 429){
+              setIsRateLimited(true)
+            }
+            else{
+              toast.error("Failed To Load Notes");
+            }
+            console.error("Error Fetching Notes: ", error);
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+
+      }
+
+      fetchNotes();
+    }, []);
+
+  return (
+    <div className="min-h-screen"> 
+      <Navbar/>
+      {isRateLimited && <RateLimitedUI/>}
+
+      <div className="max-w-6xl mx-auto mt-6 p-4">
+        {isLoading && <div className="text-center text-primary text-2xl"> Loading <span className="lg: loading loading-dots loading-lg ml-5"></span> </div>}
+
+        {notes.length > 0 && !isRateLimited && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {notes.map((note) => (
+              <NoteCard key={note._id} note={note}/>
+            ))}
+          </div>
+        )}
+      </div>
+   </div>
+  )
+}
+

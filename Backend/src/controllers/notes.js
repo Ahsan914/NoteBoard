@@ -17,7 +17,7 @@ async function getNote(req, res) {
 
 async function getAllNotes(req, res) {
 	try{
-		const notes = await Note.find();
+		const notes = await Note.find().sort({createdAt: -1}) //newest first;
 		res.status(200).json(notes);
 	}catch(error){
 		console.error("internal server error: ", error);

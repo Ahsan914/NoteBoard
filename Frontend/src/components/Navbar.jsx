@@ -9,7 +9,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-6xl p-4"> 
         <div className="flex items-center justify-between">
         
-          <h1 className="text-3xl text-primary font-mono tracking-tight"> Thinkboard </h1>
+          <h1 className="text-3xl text-primary font-mono tracking-tight"> NoteBoard </h1>
           
           <div className="buttonContainer flex items-center gap-4">
             <Link to={"/create"} className="customButton btn btn-primary">

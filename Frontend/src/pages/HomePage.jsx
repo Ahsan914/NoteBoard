@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react"
-import axios from "axios"
+import api from "../libs/axios.js";
 import toast from "react-hot-toast"
 
 import Navbar from "../components/Navbar.jsx"
@@ -15,7 +15,7 @@ export default function HomePage() {
     useEffect(() => {
       const fetchNotes = async() => {
         
-        axios.get("http://localhost:3000/api/notes")
+        api.get("/notes")
           .then((res) => {
             console.log(res.data);
             setNotes(res.data);

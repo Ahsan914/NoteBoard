@@ -46,7 +46,7 @@ export default function HomePage() {
       {isRateLimited && <RateLimitedUI/>}
 
       <div className="max-w-6xl mx-auto mt-6 p-4">
-        {isLoading && <div className="text-center text-primary text-2xl"> Loading <span className="lg: loading loading-dots loading-lg ml-5"></span> </div>}
+        {isLoading && <div className="text-center text-primary text-2xl"> Loading <span className="loading loading-dots loading-lg ml-3"></span> </div>}
 
         {!isLoading && notes.length === 0 && !isRateLimited && <NotesNotFound/>}
 

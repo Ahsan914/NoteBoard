@@ -38,8 +38,10 @@ export default function NoteCard({note, setNotes}){
 					<span className="text-sm text-base-content/60"> 
 						{ formatDate(new Date(note.createdAt)) } 
 					</span>
-					<div className="flex items-center gap-1">
-						<PenSquareIcon className="size-4"/>
+					<div className="flex items-center">
+						<button className="btn btn-ghost btn-xs">
+							<PenSquareIcon className="size-4"/>
+						</button>
 						<button className="btn btn-ghost btn-xs text-error" onClick={(e) => handleDelete(e, note._id)}>
 							<Trash2Icon className="size-4"/>
 						</button>

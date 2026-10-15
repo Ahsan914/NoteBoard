@@ -1,0 +1,21 @@
+{
+  "name": "mern-app",
+  "version": "1.0.0",
+  "description": "NoteBoard is a full-stack note-taking application built with the MERN stack. It allows users to create, view, and manage notes through a React frontend and Node.js/Express backend.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix Backend && npm install --prefix Frontend && npm run build --prefix Frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahsan914/NoteBoard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ahsan914/NoteBoard/issues"
+  },
+  "homepage": "https://github.com/Ahsan914/NoteBoard#readme"
+}

@@ -4,7 +4,8 @@
   "description": "NoteBoard is a full-stack note-taking application built with the MERN stack. It allows users to create, view, and manage notes through a React frontend and Node.js/Express backend.",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix Backend && npm install --prefix Frontend && npm run build --prefix Frontend"
+    "build": "npm install --prefix Backend && npm install --prefix Frontend && npm run build --prefix Frontend",
+    "start": "npm run start --prefix Backend"
   },
   "repository": {
     "type": "git",
